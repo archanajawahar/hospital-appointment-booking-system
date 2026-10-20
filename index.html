@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePoint Hospital</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f7fc;
+            color: #26364a;
+        }
+        header {
+            background: #12365b;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+        nav {
+            background: #087eae;
+            padding: 12px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            background: #d9efff;
+            text-align: center;
+            padding: 35px 20px;
+        }
+        .hero h2 { color: #12365b; }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 25px 18px;
+        }
+        .doctors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000012;
+        }
+        .card h3 { color: #087eae; }
+        .slot {
+            display: inline-block;
+            background: #e1f7ed;
+            color: #087b58;
+            padding: 6px 9px;
+            margin: 4px;
+            border-radius: 5px;
+        }
+        form {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 11px;
+            margin: 8px 0;
+            border: 1px solid #ccd7e2;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        button {
+            background: #087eae;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background: #075d83; }
+        .announcement {
+            background: white;
+            border-left: 5px solid #13a89e;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 6px;
+        }
+        footer {
+            background: #12365b;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 25px;
+        }
+        #message { color: #087b58; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CarePoint Hospital</h1>
+    <p>Your Health, Our Priority</p>
+</header>
+
+<nav>
+    <a href="#doctors">Doctors</a>
+    <a href="#appointments">Appointments</a>
+    <a href="#announcements">Announcements</a>
+</nav>
+
+<section class="hero">
+    <h2>Welcome to CarePoint Hospital</h2>
+    <p>Find specialists and request your appointment online.</p>
+    <p>Outpatient consultations: Monday–Saturday, 9 AM–6 PM</p>
+    <p>Emergency services are available 24 hours a day.</p>
+</section>
+
+<main class="container">
+    <section id="doctors">
+        <h2>Our Doctors and Specializations</h2>
+
+        <div class="doctors">
+            <div class="card">
+                <h3>Dr. Ananya Rao</h3>
+                <p><strong>Specialization:</strong> Cardiology</p>
+                <p><strong>Consultation:</strong> Mon–Fri, 9 AM–1 PM</p>
+                <p><strong>Available Slots:</strong></p>
+                <span class="slot">9:30 AM</span>
+                <span class="slot">11:00 AM</span>
+                <span class="slot">12:15 PM</span>
+            </div>
+
+            <div class="card">
+                <h3>Dr. Vikram Iyer</h3>
+                <p><strong>Specialization:</strong> Orthopedics</p>
+                <p><strong>Consultation:</strong> Tue–Sat, 10 AM–2 PM</p>
+                <p><strong>Available Slots:</strong></p>
+                <span class="slot">10:30 AM</span>
+                <span class="slot">12:00 PM</span>
+                <span class="slot">1:30 PM</span>
+            </div>
+
+            <div class="card">
+                <h3>Dr. Meera Nair</h3>
+                <p><strong>Specialization:</strong> Pediatrics</p>
+                <p><strong>Consultation:</strong> Mon–Sat, 2 PM–6 PM</p>
+                <p><strong>Available Slots:</strong></p>
+                <span class="slot">2:30 PM</span>
+                <span class="slot">4:00 PM</span>
+                <span class="slot">5:15 PM</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="appointments">
+        <h2>Book an Appointment</h2>
+
+        <form id="appointmentForm">
+            <label for="patient">Patient Name</label>
+            <input id="patient" type="text" placeholder="Enter patient name" required>
+
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="Enter email" required>
+
+            <label for="doctor">Choose Doctor</label>
+            <select id="doctor" required>
+                <option value="">Select a doctor</option>
+                <option>Dr. Ananya Rao</option>
+                <option>Dr. Vikram Iyer</option>
+                <option>Dr. Meera Nair</option>
+            </select>
+
+            <label for="date">Appointment Date</label>
+            <input id="date" type="date" required>
+
+            <label for="time">Preferred Time</label>
+            <select id="time" required>
+                <option value="">Select a time</option>
+                <option>9:30 AM</option>
+                <option>10:30 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>12:15 PM</option>
+                <option>1:30 PM</option>
+                <option>2:30 PM</option>
+                <option>4:00 PM</option>
+                <option>5:15 PM</option>
+            </select>
+
+            <button type="submit">Request Appointment</button>
+            <p id="message" role="status"></p>
+        </form>
+    </section>
+
+    <section id="announcements">
+        <h2>Hospital Announcements</h2>
+
+        <div class="announcement">
+            <h3>Free Health Check-up Camp</h3>
+            <p>Preventive health screening is available on the first Saturday of each month.</p>
+        </div>
+
+        <div class="announcement">
+            <h3>Outpatient Department Timings</h3>
+            <p>Please arrive 15 minutes before your scheduled consultation.</p>
+        </div>
+
+        <div class="announcement">
+            <h3>Patient Support</h3>
+            <p>Contact the hospital reception for appointment-related assistance.</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 CarePoint Hospital | Hospital Appointment Portal</p>
+</footer>
+
+<script>
+    document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        document.getElementById("message").textContent =
+            "Demo request submitted locally. No real appointment has been booked.";
+    });
+
+    const dateField = document.getElementById("date");
+    dateField.min = new Date().toLocaleDateString("en-CA");
+</script>
+
+</body>
+</html>
