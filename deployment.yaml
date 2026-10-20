@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hospital-appointment-portal
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hospital-appointment-portal
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: hospital-appointment-portal
+    spec:
+      containers:
+        - name: hospital-appointment-portal
+          image: archanajawahar14/hospital-appointment-portal:stable
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 50m
+              memory: 32Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hospital-appointment-portal
+spec:
+  type: NodePort
+  selector:
+    app: hospital-appointment-portal
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30023
